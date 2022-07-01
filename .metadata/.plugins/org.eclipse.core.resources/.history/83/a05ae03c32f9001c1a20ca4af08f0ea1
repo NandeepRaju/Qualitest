@@ -1,0 +1,16 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class cartPage {
+	
+protected WebDriver driver;
+	
+	public cartPage(WebDriver driver) {
+		this.driver = driver;
+		if (!driver.getTitle().equals("Cart – Katalon Shop")) {
+			throw new IllegalStateException("This is not login Page. The current page is: "+driver.getCurrentUrl());
+		}
+	}
+
+}

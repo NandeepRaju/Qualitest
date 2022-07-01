@@ -1,0 +1,59 @@
+package Pages;
+
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class cartPage {
+
+	protected WebDriver driver;
+	private By clm_ItemsAtCart = By.xpath("tr[@class='woocommerce-cart-form__cart-item cart_item']");
+	private By txt_ItemPrice = By.xpath("//td[@class='product-price']/span/span");
+
+
+	public cartPage(WebDriver driver) {
+		this.driver = driver;
+		if (!driver.getTitle().equals("Cart – Katalon Shop")) {
+			throw new IllegalStateException("This is not login Page. The current page is: "+driver.getCurrentUrl());
+		}
+	}
+	
+	public void itemsAtCartValidation(int noOfItems) {
+		try {
+			if (driver.findElements(clm_ItemsAtCart).size() == noOfItems) {
+				assertTrue(true);
+			} else {
+				assertTrue("Items in the cart didnot match", false);
+			}
+		} catch (Exception e) {
+			System.err.println("Failed in itemsAtCartValidation step...!!!");
+			e.printStackTrace();
+		}
+	}
+	
+	public void lowestPriceItemInCart() {
+		List<WebElement> itemPriceEle= driver.findElements(txt_ItemPrice);
+		List<String> itemPrice = null;
+		List<Integer> itemPriceNum=null;
+		for (WebElement price : itemPriceEle) {
+			String txtPrice = price.getText();
+			itemPrice.add(txtPrice);
+		}
+		for(String s : itemPrice) itemPriceNum.add(Integer.valueOf(s));
+		int lowestInt;
+		int lowestIndex;
+		for (int i = 1; i < itemPriceNum.size(); i++) {
+			lowestInt=itemPriceNum.get(0);
+			lowestIndex=0;
+			if (lowestInt < itemPriceNum.get(i)) {
+				lowestInt = itemPriceNum.get(i);
+				lowestIndex = i;
+		}
+		}
+		}
+
+}

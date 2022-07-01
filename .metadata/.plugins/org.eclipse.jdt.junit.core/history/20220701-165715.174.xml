@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="testRunner" project="Qualitest" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="TestRunner.testRunner" time="35.033">
+    <testsuite name="Cart Item Validation." time="35.033">
+      <testcase name="Remove lowest price item from cart and Validate cart items" classname="Cart Item Validation." time="35.033">
+        <error>java.lang.IllegalStateException: This is not login Page. The current page is: https://cms.demo.katalon.com/&#13;
+	at Pages.cartPage.&lt;init&gt;(cartPage.java:12)&#13;
+	at StepDefinition.cartItemSteps.i_view_my_cart(cartItemSteps.java:48)&#13;
+	at ✽.I view my cart(file:///C:/Users/Nikitha/Desktop/Qualitest/Qualitest/src/test/resources/Features/cartItems.feature:5)&#13;
+&#13;
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

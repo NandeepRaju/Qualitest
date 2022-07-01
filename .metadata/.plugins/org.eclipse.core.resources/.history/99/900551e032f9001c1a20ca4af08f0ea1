@@ -1,0 +1,34 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class cartPage {
+
+	protected WebDriver driver;
+	private By clm_ItemsAtCart = By.xpath("tr[@class='woocommerce-cart-form__cart-item cart_item']");
+
+
+	public cartPage(WebDriver driver) {
+		this.driver = driver;
+		if (!driver.getTitle().equals("Cart – Katalon Shop")) {
+			throw new IllegalStateException("This is not login Page. The current page is: "+driver.getCurrentUrl());
+		}
+	}
+	
+	public boolean itemsAtCartValidation(int noOfItems) {
+		boolean flag = false;
+		try {
+			if (driver.findElements(clm_ItemsAtCart).size() == noOfItems) {
+				flag= true;
+			} else {
+				flag= false;
+			}
+		} catch (Exception e) {
+			System.err.println("Failed in itemsAtCartValidation step...!!!");
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+}

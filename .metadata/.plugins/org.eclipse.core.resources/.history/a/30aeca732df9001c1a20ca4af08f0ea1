@@ -1,0 +1,16 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class homePage {
+	
+	protected WebDriver driver;
+	
+	public homePage(WebDriver driver) {
+		this.driver = driver;
+		if (!driver.getTitle().equals("Katalon Shop – Katalon Ecommerce")) {
+			throw new IllegalStateException("This is not login Page. The current page is: "+driver.getCurrentUrl());
+		}
+	}
+
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="testRunner" project="Qualitest" tests="1" started="1" failures="1" errors="0" ignored="0">
+  <testsuite name="TestRunner.testRunner" time="69.7">
+    <testsuite name="Cart Item Validation." time="69.7">
+      <testcase name="Remove lowest price item from cart and Validate cart items" classname="Cart Item Validation." time="69.7">
+        <failure>java.lang.AssertionError: Items in the cart didnot match&#13;
+	at org.junit.Assert.fail(Assert.java:89)&#13;
+	at org.junit.Assert.assertTrue(Assert.java:42)&#13;
+	at Pages.cartPage.itemsAtCartValidation(cartPage.java:31)&#13;
+	at StepDefinition.cartItemSteps.i_found_total_items_in_my_cart(cartItemSteps.java:53)&#13;
+	at ✽.I found total 4 items in my cart(file:///C:/Users/Nikitha/Desktop/Qualitest/Qualitest/src/test/resources/Features/cartItems.feature:6)&#13;
+&#13;
+</failure>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

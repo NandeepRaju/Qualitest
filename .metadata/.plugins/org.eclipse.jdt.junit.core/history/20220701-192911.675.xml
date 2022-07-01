@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="testRunner" project="Qualitest" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="TestRunner.testRunner" time="11.54">
+    <testsuite name="Cart Item Validation." time="11.54">
+      <testcase name="Remove lowest price item from cart and Validate cart items" classname="Cart Item Validation." time="11.54"/>
+    </testsuite>
+  </testsuite>
+</testrun>

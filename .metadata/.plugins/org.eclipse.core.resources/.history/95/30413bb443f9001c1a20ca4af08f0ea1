@@ -1,0 +1,87 @@
+package Pages;
+
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class cartPage {
+
+	protected WebDriver driver;
+	protected String lowestPriceProductName;
+	protected int lowestPriceProductIndex;
+	private By clm_ItemsAtCart = By.xpath("//tr[@class='woocommerce-cart-form__cart-item cart_item']");
+	private By txt_ItemPrice = By.xpath("//td[@class='product-price']/span");
+	private By lnk_ProductName = By.xpath("//td[@class='product-name']/a");
+	private By btn_RemoveProduct = By.xpath("//td[@class='product-remove']/a");
+	
+	
+
+
+	public cartPage(WebDriver driver) {
+		this.driver = driver;
+		if (!driver.getTitle().equals("Cart – Katalon Shop")) {
+			throw new IllegalStateException("This is not login Page. The current page is: "+driver.getCurrentUrl());
+		}
+	}
+
+	public void itemsAtCartValidation(int noOfItems) {
+		try {
+			if (driver.findElements(clm_ItemsAtCart).size() == noOfItems) {
+				assertTrue(true);
+			} else {
+				assertTrue("Items in the cart didnot match", false);
+			}
+		} catch (Exception e) {
+			System.err.println("Failed in itemsAtCartValidation step...!!!");
+			e.printStackTrace();
+		}
+	}
+
+	public void lowestPriceItemInCart() {
+		try {
+			List<WebElement> itemPriceEle= driver.findElements(txt_ItemPrice);
+			List<WebElement> itemProductNameEle= driver.findElements(txt_ProductName);
+			List<Double> itemPrice = new ArrayList<Double>();
+			for (WebElement price : itemPriceEle) {
+				String txtPrice = price.getText().substring(1);
+				System.out.println(txtPrice);
+				itemPrice.add(Double.valueOf(txtPrice));
+			}
+			System.out.println(itemPrice);
+			double lowestInt=0;
+			lowestPriceProductIndex=0;
+			for (int i = 1; i < itemPrice.size(); i++) {
+				lowestInt=itemPrice.get(0);
+				if (lowestInt > itemPrice.get(i)) {
+					lowestInt = itemPrice.get(i);
+					lowestPriceProductIndex = i;
+				}
+			}
+			//System.out.println("lowestInt : "+lowestInt);
+			//System.out.println("lowestIndex : "+lowestPriceProductIndex);
+			lowestPriceProductName = itemProductNameEle.get(lowestPriceProductIndex).getText();
+			System.out.println("Lowest price product name: "+ lowestPriceProductName);
+		} catch (Exception e) {
+			System.err.println("Failed in lowestPriceItemInCart step...!!!");
+			e.printStackTrace();
+		}
+	}
+
+	public void removeItemFromCart(String Item) {
+		try {
+			List<WebElement> itemProductNameEle= driver.findElements(txt_ProductName);
+			for (int i = 0; i < itemProductNameEle.size(); i++) {
+				
+			}
+		} catch (Exception e) {
+			System.err.println("Failed in removeItemFromCart step...!!!");
+			e.printStackTrace();
+		}
+	
+	}
+}

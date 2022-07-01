@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="testRunner" project="Qualitest" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="TestRunner.testRunner" time="0.095">
+    <testsuite name="Cart Item Validation." time="0.095">
+      <testcase name="Remove lowest price item from cart and Validate cart items" classname="Cart Item Validation." time="0.095">
+        <error>io.cucumber.java.PendingException: TODO: implement me&#13;
+	at StepDefinition.cartItemSteps.i_add_random_items_to_my_cart(cartItemSteps.java:10)&#13;
+	at ✽.I add 4 random items to my cart(file:///C:/Users/Nikitha/Desktop/Qualitest/Qualitest/src/test/resources/Features/cartItems.feature:4)&#13;
+&#13;
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

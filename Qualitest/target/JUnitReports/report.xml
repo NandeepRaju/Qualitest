@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="11.751">
-<testcase classname="Cart Item Validation." name="Remove lowest price item from cart and Validate cart items" time="11.604">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="12.239">
+<testcase classname="Cart Item Validation." name="Remove lowest price item from cart and Validate cart items" time="12.058">
 <system-out><![CDATA[Given I add 4 random items to my cart.......................................passed
 When I view my cart.........................................................passed
 Then I found total 4 items in my cart.......................................passed

@@ -1,0 +1,4 @@
+#Improvements
+1. Can add more details for browser instantiation.
+2. Can add more detailed reports structure using html reports.
+3. Can convert the same project into TDD using excel.
